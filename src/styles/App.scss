@@ -18,6 +18,7 @@ html {
     "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  // background-image: url("https://artlogic-res.cloudinary.com/w_1200,c_limit,f_auto,fl_lossy,q_auto/artlogicstorage/addisfineart/images/view/31075ea31b3a6bea760b3097af153d22j/addisfineart-selome-muleta-ts-dal-i-2020.jpg")
 }
 
 .container {
@@ -25,6 +26,7 @@ html {
   min-width: 1560px;
   margin: 0 auto;
   height: 100%;
+  
   @include media("<=1560px") {
     width: 1280px;
     min-width: 1280px;

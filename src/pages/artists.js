@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ListingContainer from "../components/ListingContainer"
 
-     const Artists = () => {
+     const Artists = (props) => {
+    
+         
+         
     return (
         <div className="page">
             <div className="row"> 
-               <h3> This is the artists page</h3>
+               <ListingContainer 
+                  
+                    
+               />
+
+               
+
+             
+
+             
+              
             </div>
         </div>
     )
