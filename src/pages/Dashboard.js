@@ -1,29 +1,35 @@
+import React, { useContext } from "react";
+import styles from "./dashboard.module.css";
+import { UserContext } from "../UserContext";
+import Login from "../pages/Login";
+import axios from "axios";
 
-import React, {useContext} from "react";
-import styles from './dashboard.module.css'
-import {UserContext} from '../UserContext'
-import Login from '../pages/Login'
+class Dashboard extends React.Component {
+  //fetch artists that the user follows along with paintings(get)
+  //makea route that takes to user artists
+  //
 
+  renderArtists(info) {
+    return <div>info</div>;
+  }
 
-     class Dashboard extends React.Component  {
+  componentDidMount() {
+    axios
+      .get(`http://localhost:3001/users/${this.props.user.id}/artists`)
 
-        
-        
-        render(){
+      .then((response) => {
+        response.data.artists.map((info) => {
+          return this.renderArtists(info.name);
+        });
+      })
+      .catch((error) => {
+        console.log("login error", error);
+      });
+  }
 
-            return(
-                <div>
-                     <h1>Dashboard</h1>
-                       
-                      
-                 </div> 
-                     
+  render() {
+    return <div>{this.renderArtists}</div>;
+  }
+}
 
-            )
-        }
-     }
-
-
-    
-
-export default Dashboard
+export default Dashboard;

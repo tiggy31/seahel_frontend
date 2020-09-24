@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import {useHistory} from 'react-router-dom'
 import axios from 'axios';
 
 function Copyright() {
@@ -48,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUp(props) {
+  const history = useHistory();
   const classes = useStyles();
 
    //form state'
@@ -82,7 +84,8 @@ export default function SignUp(props) {
      
      {withCredentials: true}
      ).then(response => {
-       console.log("signup", response)
+      props.loginHandler(response.data.user)
+      history.push('/dashboard')
      }).catch(error => {
        console.log("registration error", error)
      })

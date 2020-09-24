@@ -7,15 +7,11 @@ class ListingItem extends React.Component {
 
   
     render() {
-
-     
-     return (
-        <div >
-         {this.props.artists.map(artist => <ListingCard artist ={artist} key ={artist.id}/>)}
-         
-    
-        </div>
-     )
+        return (
+            <div >
+                {this.props.artists.map(artist => <ListingCard artist ={artist} key ={artist.id} /> )}
+            </div>
+        )
     }
 }
 

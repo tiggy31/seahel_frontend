@@ -39,15 +39,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn(props) {
 // console.log(props)
-  const history = useHistory()
+const history = useHistory();
 
 
   const classes = useStyles();
-     const [state, setState] = useState({
-       email: "",
-       password: "",
-
-     })
+  const [state, setState] = useState ({
+    email:"",
+    password: ""
+  
+})
 
      const handleChange = (e) => {
         const {id, value} = e.target
@@ -69,23 +69,22 @@ export default function SignIn(props) {
     
 
   const handleSubmitClick  =(e) => {
-    const { email, password } = this.state;
     e.preventDefault();
     axios
       .post(
         "http://localhost:3001/sessions",
         {
           user: {
-            email: email,
-            password: password
+            email: state.email,
+            password: state.password
           }
         },
         { withCredentials: true }
       )
       .then(response => {
         
-        console.log(response)
-
+        props.loginHandler(response.data.user)
+        history.push('/dashboard')
       })
       .catch(error => {
         console.log("login error", error);
